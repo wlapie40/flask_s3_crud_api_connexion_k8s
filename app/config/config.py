@@ -1,7 +1,6 @@
 import os
 
 from dotenv import load_dotenv, find_dotenv
-from app.common.logger import *
 
 
 load_dotenv(find_dotenv())
@@ -34,5 +33,4 @@ def get_config():
     app_env = {"dev": DevelopmentConfig,
                "prod": ProductionConfig,
                "local": LocalConfig}
-    logger.info(f'FLASK_ENV: {app_env[os.getenv("FLASK_ENV")]}')
     return app_env[os.getenv('FLASK_ENV')]
