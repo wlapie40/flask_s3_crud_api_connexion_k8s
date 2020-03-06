@@ -1,20 +1,19 @@
-
 swagger: "2.0"
 info:
-  description: This is the swagger file that goes with our server code
-  version: "1.0.0"
-  title: Swagger ReST Article
+  title: Share
+  version: "1.0"
+basePath: /api/v1
+schemes:
+  - https
 consumes:
   - application/json
 produces:
   - application/json
 
-basePath: /api
-
 paths:
   /healthcheck:
     post:
-      operationId: api.health_check.health_check
+      operationId: api_v1.healthcheck.health_check
       tags:
         - S3
       summary: The people data structure supported by the server application
@@ -25,66 +24,69 @@ paths:
 
   /filename/{filename}:
     get:
-      operationId: api.s3.list_file
+      operationId: api_v1.s3.list_file
       tags:
         - S3
       summary: The people data structure supported by the server application
       description: Read the list of people
       parameters:
-        - name: filename
-          in: path
-          description: A file name
-          type: string
-          required: True
+        - $ref: "#/parameters/parameter_filename"
       responses:
         200:
           description: A file has been listed succesfully
     post:
-      operationId: api.s3.upload_file
+      operationId: api_v1.s3.upload_file
       tags:
         - S3
       summary: The people data structure supported by the server application
       description: Read the list of people
       parameters:
-        - name: filename
-          in: path
-          description: A file name
-          type: string
-          required: True
+        - $ref: "#/parameters/parameter_filename"
       responses:
         200:
           description: A file has been listed succesfully
 
 
     delete:
-      operationId: api.s3.delete_file
+      operationId: api_v1.s3.delete_file
       tags:
         - S3
       summary: The people data structure supported by the server application
       description: Read the list of people
       parameters:
-        - name: filename
-          in: path
-          description: A file name
-          type: string
-          required: True
+        - $ref: "#/parameters/parameter_filename"
       responses:
         200:
           description: A file has been listed succesfully
 
   /filename/{filename}/all:
     get:
-      operationId: api.s3.list_files
+      operationId: api_v1.s3.list_files
       tags:
         - S3
       summary: The people data structure supported by the server application
       description: Read the list of people
       parameters:
-        - name: filename
-          in: path
-          description: A file name
-          type: string
-          required: True
+        - $ref: "#/parameters/parameter_filename"
       responses:
         200:
           description: A file has been listed succesfully
+
+parameters:
+  parameter_filename:
+    name: filename
+    in: path
+    type: string
+    format: string
+    x-example: csrcertificatetest
+    required: true
+
+#  parameter_s3_name:
+#    name: s3_name
+#    in: path
+#    type: string
+#    format: string
+#    x-example: MyAWSbucket
+#    required: false
+#
+
