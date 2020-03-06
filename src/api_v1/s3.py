@@ -16,3 +16,11 @@ def delete_file():
 
 def list_files():
     return 'OK'
+
+
+def delete_s3():
+    return 'OK'
+
+
+def create_s3():
+    return 'OK'

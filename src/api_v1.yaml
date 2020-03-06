@@ -72,6 +72,30 @@ paths:
         200:
           description: A file has been listed succesfully
 
+  /s3_bucket/{s3_bucket}/:
+    post:
+      operationId: api_v1.s3.create_s3
+      tags:
+        - S3
+      summary: The people data structure supported by the server application
+      description: Read the list of people
+      parameters:
+        - $ref: "#/parameters/parameter_s3_bucket"
+      responses:
+        200:
+          description: A file has been listed succesfully
+    delete:
+      operationId: api_v1.s3.delete_s3
+      tags:
+        - S3
+      summary: The people data structure supported by the server application
+      description: Read the list of people
+      parameters:
+        - $ref: "#/parameters/parameter_s3_bucket"
+      responses:
+        200:
+          description: A file has been listed succesfully
+
 parameters:
   parameter_filename:
     name: filename
@@ -81,12 +105,12 @@ parameters:
     x-example: csrcertificatetest
     required: true
 
-#  parameter_s3_name:
-#    name: s3_name
-#    in: path
-#    type: string
-#    format: string
-#    x-example: MyAWSbucket
-#    required: false
-#
+  parameter_s3_bucket:
+    name: s3_bucket
+    in: path
+    type: string
+    format: string
+    x-example: MyAWSbucket
+    required: true
+
 
