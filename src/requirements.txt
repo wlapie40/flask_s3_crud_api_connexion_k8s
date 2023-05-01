@@ -1,4 +1,4 @@
 connexion==2.6.0
-Flask==1.1.1
+Flask==2.3.2
 python-dotenv==0.12.0
 boto3==1.12.15
